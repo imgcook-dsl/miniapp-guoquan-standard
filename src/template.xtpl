@@ -1,13 +1,16 @@
-'use strict';
-
-import React, { Component } from 'react';
-
+<template src="./index.html"></template>
+<style lang="scss" src="./index.scss" scoped></style>
+<script>
 {{{imports}}}
-
-{{{utils}}}
-
-{{{style}}}
-
-{{{classes}}}
-
-{{{exports}}}
+export default {
+    data() {
+       return {
+           {{{datas.join(',')}}}
+       } 
+    },
+    methods: {
+        {{{methods.join(',')}}}
+    },
+    {{{lifeCycles.join(',')}}}
+}
+</script>

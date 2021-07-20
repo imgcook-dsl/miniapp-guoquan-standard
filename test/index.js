@@ -15,10 +15,7 @@ const vm = new NodeVM({
 
 co(function*() {
   const xtplRender = thunkify(xtpl.render);
-  const code = fs.readFileSync(
-    path.resolve(__dirname, '../src/index.js'),
-    'utf8'
-  );
+  const code = fs.readFileSync(path.resolve(__dirname, '../src/index.js'), 'utf8');
   const renderInfo = vm.run(code)(data, {
     prettier: prettier,
     _: _,
@@ -33,24 +30,37 @@ co(function*() {
     }
   });
 
+  // 检查文件夹是否存在
+  const folderCode = path.join(__dirname, '../code/');
+  if (!fs.existsSync(folderCode)) {
+    fs.mkdirSync(folderCode);
+  }
+
   if (renderInfo.noTemplate) {
     renderInfo.panelDisplay.forEach((file) => {
-      fs.writeFileSync(path.join(__dirname, `../code/${file.panelName}`), file.panelValue);
+      fs.writeFileSync( `${folderCode}${file.panelName}`, file.panelValue);
     });
   } else {
     const renderData = renderInfo.renderData;
-    const ret = yield xtplRender(
-      path.resolve(__dirname, '../src/template.xtpl'),
-      renderData,
-      {}
-    );
+    const ret = yield xtplRender(path.resolve(__dirname, '../src/template.xtpl'), renderData, {});
 
     const prettierOpt = renderInfo.prettierOpt || {
-      printWidth: 120
+      parser: 'vue',
+      printWidth: 120,
+      tabWidth: 4,
+      semi: true,
+      singleQuote: true,
+      trailingComma: 'none',
+      bracketSpacing: true,
+      jsxBracketSameLine: true,
+      arrowParens: 'avoid',
+      requirePragma: false,
+      proseWrap: 'preserve',
+      endOfLine: 'auto',
     };
 
     const prettierRes = prettier.format(ret, prettierOpt);
 
-    fs.writeFileSync(path.join(__dirname,'../code/result.js'), prettierRes);
+    fs.writeFileSync(path.join(__dirname, '../code/result.vue'), prettierRes);
   }
 });

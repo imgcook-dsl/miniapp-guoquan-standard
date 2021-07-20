@@ -1,0 +1,130 @@
+.mod {
+    width: 750rpx;
+    height: 646rpx;
+    .wrapper {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        border-radius: 24rpx;
+        background-color: #ffffff;
+        width: 750rpx;
+        height: 646rpx;
+        .banner {
+            position: relative;
+            width: 750rpx;
+            height: 393rpx;
+        }
+        .title {
+            position: relative;
+            margin-top: 31rpx;
+            margin-left: 26rpx;
+            max-width: 698rpx;
+            height: 36rpx;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 36rpx;
+            white-space: nowrap;
+            color: #333333;
+            font-size: 32rpx;
+            font-weight: 500;
+        }
+        .summary {
+            webkit-box-orient: vertical;
+            display: -webkit-inline-box;
+            webkit-line-clamp: 2;
+            position: relative;
+            margin-top: 16rpx;
+            margin-left: 26rpx;
+            width: 702rpx;
+            height: 80rpx;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 40rpx;
+            color: #888888;
+            font-size: 26rpx;
+            font-weight: 300;
+        }
+        .main {
+            display: flex;
+            position: relative;
+            align-items: center;
+            align-self: center;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 24rpx;
+            width: 693rpx;
+            .group {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                white-space: nowrap;
+                .view {
+                    display: flex;
+                    position: relative;
+                    align-items: flex-start;
+                    flex-direction: row;
+                    margin-right: 7rpx;
+                    height: 36rpx;
+                    white-space: normal;
+                    .icon-warn {
+                        position: absolute;
+                        top: 0rpx;
+                        left: 0rpx;
+                        width: 38rpx;
+                        height: 36rpx;
+                    }
+                    .icon-complete {
+                        position: relative;
+                        margin-top: 22rpx;
+                        margin-left: 24rpx;
+                        width: 14rpx;
+                        height: 13rpx;
+                    }
+                }
+                .tag {
+                    margin-right: 13rpx;
+                    line-height: 24rpx;
+                    color: #666666;
+                    font-size: 24rpx;
+                    font-weight: 300;
+                }
+                .tag-wrapper {
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                    border-radius: 6rpx;
+                    background-color: rgba(253, 234, 238, 0.9);
+                    padding-right: 14rpx;
+                    padding-left: 8rpx;
+                    height: 28rpx;
+                    line-height: 20rpx;
+                    .tag-1 {
+                        color: #ff2c54;
+                        font-size: 20rpx;
+                        font-weight: 400;
+                    }
+                }
+            }
+            .group-1 {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                margin-top: 6rpx;
+                height: 24rpx;
+                .icon {
+                    margin-right: 8rpx;
+                    width: 27rpx;
+                    height: 20rpx;
+                }
+                .num {
+                    line-height: 20rpx;
+                    white-space: nowrap;
+                    color: #999999;
+                    font-size: 20rpx;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
