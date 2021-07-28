@@ -493,20 +493,20 @@ module.exports = function(schema, option) {
             case 'block':
             case 'component':
                 if (schema.children && schema.children.length) {
-                    xml = `<div${classString}${styleString}${props}>${transform(
+                    xml = `<view${classString}${styleString}${props}>${transform(
                         schema.children
-                    )}</div>`;
+                    )}</view>`;
                 } else {
-                    xml = `<div${classString}${styleString}${props} />`;
+                    xml = `<view${classString}${styleString}${props} />`;
                 }
                 break;
             default:
                 if (schema.children && schema.children.length) {
-                    xml = `<div${classString}${styleString}${props}>${transform(
+                    xml = `<view${classString}${styleString}${props}>${transform(
                         schema.children
-                    )}</div>`;
+                    )}</view>`;
                 } else {
-                    xml = `<div${classString}${styleString}${props} />`;
+                    xml = `<view${classString}${styleString}${props} />`;
                 }
         }
 
@@ -637,6 +637,7 @@ module.exports = function(schema, option) {
         requirePragma: false,
         proseWrap: 'preserve',
         endOfLine: 'auto',
+        htmlWhitespaceSensitivity: "ignore"
     };
 
     const prettierVueOpt = {

@@ -57,6 +57,7 @@ co(function*() {
       requirePragma: false,
       proseWrap: 'preserve',
       endOfLine: 'auto',
+      htmlWhitespaceSensitivity: "ignore"
     };
 
     const prettierRes = prettier.format(ret, prettierOpt);
